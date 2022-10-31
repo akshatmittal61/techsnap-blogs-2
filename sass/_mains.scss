@@ -1,0 +1,163 @@
+.main {
+	width: 100%;
+	min-height: 100vh - ($head-height + $foot-height);
+	display: flex;
+	justify-content: space-between;
+	flex-flow: column;
+	&-head {
+		width: 100%;
+		height: 80vh - ($head-height);
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		@include respond(phone) {
+			flex-flow: column;
+			height: 90vh;
+		}
+		&-left {
+			width: 60%;
+			height: 100%;
+			display: flex;
+			flex-flow: column;
+			justify-content: space-between;
+			align-items: flex-start;
+			padding: 2rem 3rem;
+			@include respond(tab){
+				justify-content: space-evenly;
+			}
+			@include respond(phone) {
+				width: 100%;
+				height: 40%;
+				padding: 1.5rem 2rem;
+				justify-content: space-evenly;
+			}
+			&-top,
+			&-mid,
+			&-bottom {
+				width: 100%;
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				padding: 3rem;
+				@include respond(tab) {
+					padding: 1rem 1.5rem;
+				}
+			}
+			&-top {
+				font-size: 3rem;
+				line-height: 3.5rem;
+				font-weight: 700;
+				padding: 3rem 1.5rem;
+				@include respond(tab) {
+					padding: 1rem 1.5rem;
+				}
+			}
+			&-mid {
+				font-size: 2.75rem;
+				line-height: 3rem;
+				@include respond(tab) {
+					font-size: 2.25rem;
+					line-height: 2.5rem;
+				}
+			}
+			&-bottom {
+				font-size: 1.75rem;
+				line-height: 2rem;
+				& > button {
+					border-bottom: 1px solid var(--back-shadow-dark);
+					transition: all var(--transition-time) ease-in-out;
+					display: flex;
+					justify-content: space-evenly;
+					align-items: center;
+					&:hover {
+						border-bottom: 1px solid var(--tcolor);
+					}
+					& > * {
+						padding: 1rem 0.5rem;
+					}
+				}
+			}
+		}
+		&-right {
+			width: 60%;
+			height: 100%;
+			display: flex;
+			flex-flow: column;
+			justify-content: space-between;
+			align-items: center;
+			@include respond(phone) {
+				width: 100%;
+				height: 40%;
+				// flex-flow: column-reverse;
+			}
+			&-image {
+				width: 80%;
+				height: 80%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				&__img {
+					object-fit: cover;
+					max-width: 100%;
+					max-height: 100%;
+					border-radius: 20px;
+					@include respond(phone){
+						max-width: 90%;
+						max-height: 90%;
+					}
+				}
+			}
+			&-search {
+				width: 100%;
+				height: 20%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				& form {
+					position: relative;
+					& input {
+						padding: 1rem 1rem 1rem 3rem;
+						margin: 0;
+					}
+					&::before {
+						content: attr(data-icon);
+						position: absolute;
+						z-index: 2;
+						font-family: "Material Icons";
+						top: 50%;
+						left: 1.25rem;
+						font-size: 1rem;
+						width: 1rem;
+						height: 1rem;
+						transform: translateY(-50%);
+						display: flex;
+						justify-content: center;
+						align-items: center;
+					}
+				}
+			}
+		}
+	}
+	&-body {
+		width: 100%;
+	}
+	&-foot {
+		width: 100%;
+		display: flex;
+		flex-flow: column;
+		justify-content: center;
+		align-items: center;
+		padding: 2rem 0;
+		&-top {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			&-nav {
+				width: 100%;
+				display: flex;
+				justify-content: space-evenly;
+				align-items: center;
+			}
+		}
+	}
+}
